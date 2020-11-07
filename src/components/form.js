@@ -63,7 +63,14 @@ const Forms = (props) => {
 
 
        </Formik>}
-       {}
+        { step ===2 &&
+       <div>
+         <div>{data.project}</div>
+         <div>{data.description}</div>
+         <div>{data.client}</div>
+         <div>{data.contractor}</div>
+       </div>
+       }
     </div>
   );
 };
