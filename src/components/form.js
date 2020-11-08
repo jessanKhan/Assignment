@@ -6,12 +6,21 @@ import * as XLSX from "xlsx";
 import { csv } from "d3";
 import file from '../file/input_values.csv';
 
-const initialValues = {
+const initialValuesStep1 = {
   project: "project",
   description: "description",
   client: "client",
   contractor: "contractor",
 };
+
+const initialValuesStep2= {
+  max_X:"",
+  min_X:"",
+  max_Y:"",
+  min_Y:"",
+  max_Z:"",
+  min_Z:"",
+}
 
 const Forms = (props) => {
   const [items, setItems] = useState([]);
@@ -27,7 +36,11 @@ const Forms = (props) => {
     setData(formData);
     setStep(2);
   };
-
+  const onsubmitfunction2 = (formData) => {
+    console.log("e.target.value min max", formData);
+    // setData(formData);
+    // setStep(3);
+  };
 
   // const readExcel = (file) => {
   //   console.log(file)
@@ -111,7 +124,7 @@ const Forms = (props) => {
     <div>
       {step === 1 && (
         <Formik
-          initialValues={initialValues}
+          initialValues={initialValuesStep1}
           onSubmit={(data) => onsubmitfunction(data)}
         >
           {({ values, handleChange, handleBlur, handleSubmit }) => (
@@ -170,9 +183,82 @@ const Forms = (props) => {
             </Button>
           </div>
 
-          {
-            items.map((item, i) => <h6 key={i}>{item.KP}</h6>)
-          }
+
+          <Formik
+          initialValues={initialValuesStep2}
+          onSubmit={(data) => onsubmitfunction2(data)}
+        >
+          {({ values, handleChange, handleBlur, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <div>
+                <TextField
+                label="max_X"
+                  name="max_X"
+                  value={values.max_X}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <TextField
+                label="min_X"
+                  name="min_X"
+                  value={values.min_X}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <TextField
+                label="max_Y"
+                  name="max_Y"
+                  value={values.max_Y}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <TextField
+                label="min_Y"
+                  name="min_Y"
+                  value={values.min_Y}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <TextField
+                label="max_Z"
+                  name="max_Z"
+                  value={values.max_Z}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <div>
+                <TextField
+                label="min_Z"
+                  name="min_Z"
+                  value={values.min_Z}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </div>
+              <Button type="submit">Submit</Button>
+            </form>
+          )}
+        </Formik>
+
+
+          {/* {
+            items.map((item, i) => <div>
+            <h6 key={i}>{item.KP}</h6>
+            <h6 key={i}>{item.X}</h6>
+            <h6 key={i}>{item.Y}</h6>
+            <h6 key={i}>{item.Z}</h6>
+            </div>
+            )
+          } */}
         </div>
       )}
     </div>
