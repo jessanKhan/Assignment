@@ -24,7 +24,7 @@ const initialValuesStep2 = {
 
 const Forms = (props) => {
   const [items, setItems] = useState([]);
-  const [values, setValues] = useState({ max_X: null, min_x: null, max_Y: null, min_y: null, max_Z: null, min_z: null })
+  const [values, setValues] = useState({ max_X: '', min_x: '', max_Y: '', min_y: '', max_Z: '', min_z: '' })
   const [data, setData] = useState();
   // const [description,setDescription]=useState('');
   // const [client,setClient]=useState('');
@@ -125,6 +125,7 @@ const Forms = (props) => {
   }
 
 
+  console.log(values);
 
   return (
     <div>
@@ -247,7 +248,7 @@ const Forms = (props) => {
                   name="min_z"
                   value={values.min_z}
                   onChange={handleChange}
-                // onBlur={handleBlur}
+                // onBlur={handleBlur}  
                 />
               </div>
               <Button type="submit">Submit</Button>
