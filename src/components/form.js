@@ -13,13 +13,13 @@ const initialValuesStep1 = {
   contractor: "contractor",
 };
 
-const initialValuesStep2= {
-  max_X:"",
-  min_X:"",
-  max_Y:"",
-  min_Y:"",
-  max_Z:"",
-  min_Z:"",
+const initialValuesStep2 = {
+  max_X: "",
+  min_X: "",
+  max_Y: "",
+  min_Y: "",
+  max_Z: "",
+  min_Z: "",
 }
 
 const Forms = (props) => {
@@ -117,7 +117,13 @@ const Forms = (props) => {
     // }
   }
 
-  console.log(values);
+  function handleChange(e) {
+    setValues({ [e.target.name]: e.target.value })
+  }
+
+  function handleSubmit() {
+  }
+
 
 
   return (
@@ -185,69 +191,69 @@ const Forms = (props) => {
 
 
           <Formik
-          initialValues={initialValuesStep2}
-          onSubmit={(data) => onsubmitfunction2(data)}
-        >
-          {({ values, handleChange, handleBlur, handleSubmit }) => (
+            initialValues={initialValuesStep2}
+            onSubmit={(data) => onsubmitfunction2(data)}
+          >
+            {/* {({ values, handleChange, handleBlur, handleSubmit }) => ( */}
             <form onSubmit={handleSubmit}>
               <div>
                 <TextField
-                label="max_X"
+                  label="max_X"
                   name="max_X"
                   value={values.max_X}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                // onBlur={handleBlur}
                 />
               </div>
               <div>
                 <TextField
-                label="min_X"
-                  name="min_X"
-                  value={values.min_X}
+                  label="min_x"
+                  name="min_x"
+                  value={values.min_x}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                // onBlur={handleBlur}
                 />
               </div>
               <div>
                 <TextField
-                label="max_Y"
+                  label="max_Y"
                   name="max_Y"
                   value={values.max_Y}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                // onBlur={handleBlur}
                 />
               </div>
               <div>
                 <TextField
-                label="min_Y"
-                  name="min_Y"
-                  value={values.min_Y}
+                  label="min_y"
+                  name="min_y"
+                  value={values.min_y}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                // onBlur={handleBlur}
                 />
               </div>
               <div>
                 <TextField
-                label="max_Z"
+                  label="max_Z"
                   name="max_Z"
                   value={values.max_Z}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                // onBlur={handleBlur}
                 />
               </div>
               <div>
                 <TextField
-                label="min_Z"
-                  name="min_Z"
-                  value={values.min_Z}
+                  label="min_z"
+                  name="min_z"
+                  value={values.min_z}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                // onBlur={handleBlur}
                 />
               </div>
               <Button type="submit">Submit</Button>
             </form>
-          )}
-        </Formik>
+            {/* )} */}
+          </Formik>
 
 
           {/* {
