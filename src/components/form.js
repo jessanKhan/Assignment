@@ -15,6 +15,7 @@ const initialValues = {
 
 const Forms = (props) => {
   const [items, setItems] = useState([]);
+  const [values, setValues] = useState({ max_X: null, min_x: null, max_Y: null, min_y: null, max_Z: null, min_z: null })
   const [data, setData] = useState();
   // const [description,setDescription]=useState('');
   // const [client,setClient]=useState('');
@@ -64,7 +65,7 @@ const Forms = (props) => {
   const showFile = async (e) => {
     const localUrl = URL.createObjectURL(e.target.files[0]);
     csv(localUrl)
-      .then(data => setItems(data))
+      .then(data => { setItems(data); calculateMinMax(data) })
       .catch(er => console.log(er));
 
 
@@ -97,10 +98,13 @@ const Forms = (props) => {
     const max_Z = Math.max(...arr.map(a => a.Z));
     const min_z = Math.min(...arr.map(a => a.Z));
 
-    return {
-      max_X, min_x, max_Y, min_y, max_Z, min_z
-    }
+    setValues({ max_X, min_x, max_Y, min_y, max_Z, min_z })
+    // return {
+    //   max_X, min_x, max_Y, min_y, max_Z, min_z
+    // }
   }
+
+  console.log(values);
 
 
   return (
