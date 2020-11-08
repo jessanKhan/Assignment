@@ -99,7 +99,21 @@ const Forms = (props) => {
     // console.log(parsed)
   }
 
-  console.log(items);
+  function calculateMinMax(arr) {
+
+    const max_X = Math.max(...arr.map(a => a.X));
+    const min_x = Math.min(...arr.map(a => a.X));
+
+    const max_Y = Math.max(...arr.map(a => a.Y));
+    const min_y = Math.min(...arr.map(a => a.Y));
+
+    const max_Z = Math.max(...arr.map(a => a.Z));
+    const min_z = Math.min(...arr.map(a => a.Z));
+
+    return {
+      max_X, min_x, max_Y, min_y, max_Z, min_z
+    }
+  }
 
 
   return (
