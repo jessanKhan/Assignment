@@ -63,8 +63,9 @@ const Forms = (props) => {
 
   const showFile = async (e) => {
     const localUrl = URL.createObjectURL(e.target.files[0]);
-    csv(localUrl).then(data => console.log(data, "csv data"))
-    setItems(data)
+    csv(localUrl)
+      .then(data => setItems(data))
+      .then(er => console.log(er.message));
 
 
 
@@ -84,6 +85,7 @@ const Forms = (props) => {
     // // Papa.parse(e.target.files)
     // console.log(parsed)
   }
+  console.log('items', items);
 
   return (
     <div>
