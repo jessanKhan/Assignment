@@ -5,6 +5,7 @@ import Papa, { CSVReader } from 'papaparse';
 import * as XLSX from "xlsx";
 import { csv } from "d3";
 import file from '../file/input_values.csv';
+import './form.css';
 
 const initialValuesStep1 = {
   project: "project",
@@ -136,36 +137,48 @@ const Forms = (props) => {
         >
           {({ values, handleChange, handleBlur, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <div>
+              <div className="input">
                 <TextField
+                required
+                label="project"
                   name="project"
                   value={values.project}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  variant="outlined"
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
+                required
+                  label="description"
                   name="description"
                   value={values.description}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  variant="outlined"
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
+                required
+                  label="client"
                   name="client"
                   value={values.client}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  variant="outlined"
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
+                required
+                  label="contractor"
                   name="contractor"
                   value={values.contractor}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  variant="outlined"
                 />
               </div>
               <Button type="submit">Submit</Button>
@@ -197,57 +210,63 @@ const Forms = (props) => {
           >
             {/* {({ values, handleChange, handleBlur, handleSubmit }) => ( */}
             <form onSubmit={handleSubmit}>
-              <div>
+              <div className="input">
                 <TextField
                   label="max_X"
                   name="max_X"
                   value={values.max_X}
                   onChange={handleChange}
+                  variant="outlined"
                 // onBlur={handleBlur}
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
                   label="min_x"
                   name="min_x"
                   value={values.min_x}
                   onChange={handleChange}
+                  variant="outlined"
                 // onBlur={handleBlur}
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
                   label="max_Y"
                   name="max_Y"
                   value={values.max_Y}
                   onChange={handleChange}
+                  variant="outlined"
                 // onBlur={handleBlur}
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
                   label="min_y"
                   name="min_y"
                   value={values.min_y}
                   onChange={handleChange}
+                  variant="outlined"
                 // onBlur={handleBlur}
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
                   label="max_Z"
                   name="max_Z"
                   value={values.max_Z}
                   onChange={handleChange}
+                  variant="outlined"
                 // onBlur={handleBlur}
                 />
               </div>
-              <div>
+              <div className="input">
                 <TextField
                   label="min_z"
                   name="min_z"
                   value={values.min_z}
                   onChange={handleChange}
+                  variant="outlined"
                 // onBlur={handleBlur}  
                 />
               </div>
