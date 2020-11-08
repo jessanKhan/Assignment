@@ -65,7 +65,7 @@ const Forms = (props) => {
     const localUrl = URL.createObjectURL(e.target.files[0]);
     csv(localUrl)
       .then(data => setItems(data))
-      .then(er => console.log(er.message));
+      .catch(er => console.log(er));
 
 
 
@@ -85,7 +85,9 @@ const Forms = (props) => {
     // // Papa.parse(e.target.files)
     // console.log(parsed)
   }
-  console.log('items', items);
+
+  console.log(items);
+
 
   return (
     <div>
@@ -150,9 +152,9 @@ const Forms = (props) => {
             </Button>
           </div>
 
-          {items.length > 0 &&
-            items.map(<div>{items.KP}</div>
-            )}
+          {
+            items.map((item, i) => <h6 key={i}>{item.KP}</h6>)
+          }
         </div>
       )}
     </div>
